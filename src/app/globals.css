@@ -1,0 +1,177 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html, body {
+    background-color: #0b0b0e;
+    color: #e4e4e7;
+  }
+
+  body {
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+    min-height: 100vh;
+    background-color: #0b0b0e;
+    background-image:
+      radial-gradient(800px 500px at 10% 0%, rgba(198, 255, 61, 0.08), transparent 60%),
+      radial-gradient(700px 500px at 90% 100%, rgba(139, 92, 246, 0.10), transparent 65%);
+    background-attachment: fixed, fixed;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: "Space Grotesk", "Inter", system-ui, sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: #fafafa;
+  }
+
+  ::selection {
+    background: rgba(198, 255, 61, 0.35);
+    color: #0b0b0e;
+  }
+
+  input, textarea, select {
+    background-color: #1f1f25;
+    border: 1px solid #2d2d35;
+    color: #fafafa;
+    border-radius: 12px;
+    padding: 12px 14px;
+    width: 100%;
+    font-family: "Inter", system-ui, sans-serif;
+    transition: border-color 0.15s, box-shadow 0.15s, background-color 0.15s;
+  }
+
+  input::placeholder, textarea::placeholder {
+    color: #71717a;
+  }
+
+  input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: #c6ff3d;
+    background-color: #15151a;
+    box-shadow: 0 0 0 4px rgba(198, 255, 61, 0.12);
+  }
+
+  label {
+    color: #a1a1aa;
+    font-family: "Inter", sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0;
+    text-transform: none;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  a {
+    color: inherit;
+  }
+}
+
+@layer components {
+  /* Botão primário — pill verde-limão, peso alto, contraste forte */
+  .btn-gold {
+    @apply inline-flex items-center justify-center px-6 py-3 transition;
+    font-family: "Space Grotesk", "Inter", sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    font-size: 15px;
+    color: #0b0b0e;
+    background: #c6ff3d;
+    border: 1px solid #a3d829;
+    border-radius: 999px;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.25) inset, 0 8px 24px -10px rgba(198, 255, 61, 0.45);
+  }
+  .btn-gold:hover {
+    background: #d4ff5c;
+    transform: translateY(-1px);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 12px 30px -10px rgba(198, 255, 61, 0.55);
+  }
+  .btn-gold:active {
+    transform: translateY(0);
+  }
+  .btn-gold:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  /* Botão secundário — contorno arredondado, fundo translúcido no hover */
+  .btn-ghost {
+    @apply inline-flex items-center justify-center px-5 py-3 transition;
+    font-family: "Space Grotesk", "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    color: #fafafa;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 999px;
+  }
+  .btn-ghost:hover {
+    background: rgba(198, 255, 61, 0.08);
+    border-color: rgba(198, 255, 61, 0.4);
+    color: #c6ff3d;
+  }
+
+  /* Botão destrutivo — vermelho ousado */
+  .btn-danger {
+    @apply inline-flex items-center justify-center px-5 py-3 transition;
+    font-family: "Space Grotesk", "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    color: #fafafa;
+    background: rgba(244, 63, 94, 0.12);
+    border: 1px solid rgba(244, 63, 94, 0.45);
+    border-radius: 999px;
+  }
+  .btn-danger:hover {
+    background: rgba(244, 63, 94, 0.22);
+    border-color: rgba(244, 63, 94, 0.8);
+  }
+
+  /* Card — cantos arredondados, gradiente sutil, borda neon discreta */
+  .card {
+    background: linear-gradient(180deg, #18181d 0%, #121216 100%);
+    border: 1px solid #26262b;
+    border-radius: 18px;
+    overflow: hidden;
+  }
+
+  /* Divisor mais discreto e moderno */
+  .divider-gold {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(198, 255, 61, 0.35), transparent);
+  }
+
+  /* Pill / etiqueta — usada como tag de categoria, status, etc. */
+  .stamp {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 12px;
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 600;
+    letter-spacing: 0;
+    font-size: 12px;
+    color: #0b0b0e;
+    background: #c6ff3d;
+    border-radius: 999px;
+  }
+  .stamp-outline {
+    color: #c6ff3d;
+    background: rgba(198, 255, 61, 0.08);
+    border: 1px solid rgba(198, 255, 61, 0.4);
+  }
+  .stamp-purple {
+    background: #a78bfa;
+    color: #0b0b0e;
+  }
+  .stamp-oxblood {
+    background: #f43f5e;
+    color: #0b0b0e;
+  }
+}
