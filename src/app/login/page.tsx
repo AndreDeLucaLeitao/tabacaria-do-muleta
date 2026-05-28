@@ -1,11 +1,19 @@
 "use client";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { PasswordInput } from "@/components/password-input";
 
 export default function LoginPage() {
+  return (
+    <Suspense fallback={null}>
+      <LoginForm />
+    </Suspense>
+  );
+}
+
+function LoginForm() {
   const search = useSearchParams();
   const next = search.get("next") ?? "/";
   const [email, setEmail] = useState("");

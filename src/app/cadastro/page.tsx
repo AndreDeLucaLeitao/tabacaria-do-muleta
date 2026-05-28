@@ -1,12 +1,20 @@
 "use client";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { PasswordInput } from "@/components/password-input";
 import { ageFrom, digitsOnly } from "@/lib/format";
 
 export default function CadastroPage() {
+  return (
+    <Suspense fallback={null}>
+      <CadastroForm />
+    </Suspense>
+  );
+}
+
+function CadastroForm() {
   const search = useSearchParams();
   const next = search.get("next") ?? "/";
 
